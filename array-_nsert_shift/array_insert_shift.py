@@ -14,9 +14,11 @@ def remove_mid(list):
         list = list[0:mid-1] + list[mid:]  
     return list
 
+
+
 list =[1,2,3,4,5]
 
-print(insertShiftArray(list,8))
+# print(insertShiftArray(list,8))
 # print(list)
 # print(remove_mid(insertShiftArray(list,8)))
 
