@@ -8,24 +8,24 @@ class LinkedList:
     def __init__(self):
         self.head = None
 
-    def insert(self, value):
-        new_node = Node(value)
-        if not self.head :
-            self.head = new_node
-        else:
-            current= self.head
-            while current.next :
-                current=current.next
-            current.next=new_node 
-
-#  Adds a new node with that value to the head of the list with an O(1) Time  // let last node == head 
     # def insert(self, value):
     #     new_node = Node(value)
-    #     if not self.head:
+    #     if not self.head :
     #         self.head = new_node
     #     else:
-    #         new_node.next = self.head
-    #         self.head = new_node
+    #         current= self.head
+    #         while current.next :
+    #             current=current.next
+    #         current.next=new_node 
+
+#  Adds a new node with that value to the head of the list with an O(1) Time  // let last node == head 
+    def insert(self, value):
+        new_node = Node(value)
+        if not self.head:
+            self.head = new_node
+        else:
+            new_node.next = self.head
+            self.head = new_node
         
     
     def includes(self, value):

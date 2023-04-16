@@ -13,24 +13,24 @@ def test_empty_ll():
 
 
 # # Test inserting a single node into the linked list
-def test_insert_1_node():
+# def test_insert_1_node():
     
-    ll.insert('a')
-    expected = '{ a } -> NULL'
-    actual = str(ll)
-    assert expected == actual
+#     ll.insert('a')
+#     expected = '{ a } -> NULL'
+#     actual = str(ll)
+#     assert expected == actual
 
 
 #  The head property will properly point to the first node in the linked list 
-def test_head_is_first_node(insert):
-    insert
+def test_head_is_first_node():
+    ll.insert('a')
     assert ll.head.value == 'a'
 
 #  Test inserting multiple nodes into the linked list
 def test_inserting_multiple_nodes(reset_ll,insert):
     reset_ll
     insert
-    expected = '{ a } -> { b } -> { c } -> NULL'
+    expected = '{ c } -> { b } -> { a } -> NULL'
     actual = str(ll)
     assert expected == actual
 
@@ -46,10 +46,10 @@ def test_if_value_doesnt_exist(insert):
 
 
 # Test to_string method
-def test_to_string(insert):
+def test_to_string(insert,reset_ll):
+    reset_ll
     insert
-    assert str(ll) == '{ a } -> { b } -> { c } -> NULL'
-
+    assert str(ll) == '{ c } -> { b } -> { a } -> NULL'
 
 #################################################################################################
 @pytest.fixture
