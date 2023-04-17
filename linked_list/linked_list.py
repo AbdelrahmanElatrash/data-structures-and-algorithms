@@ -8,15 +8,7 @@ class LinkedList:
     def __init__(self):
         self.head = None
 
-    # def insert(self, value):
-    #     new_node = Node(value)
-    #     if not self.head :
-    #         self.head = new_node
-    #     else:
-    #         current= self.head
-    #         while current.next :
-    #             current=current.next
-    #         current.next=new_node 
+    
 
 #  Adds a new node with that value to the head of the list with an O(1) Time  // let last node == head 
     def insert(self, value):
@@ -48,6 +40,91 @@ class LinkedList:
                 current_node = current_node.next
             result += "NULL"
         return result
+    
+    def append(self, value):
+        new_node = Node(value)
+        if not self.head :
+            self.head = new_node
+        else:
+            current= self.head
+            while current.next :
+                current=current.next
+            current.next=new_node 
+
+
+    def insert_before(self, value, new_value):
+        # If the linked list is empty, we can't insert before anything
+        if not self.head:
+            return " linked list is empty"
+        
+        # If the first node has the value specified, we can just insert 
+        if self.head.value == value:
+            self.insert(new_value)
+
+
+        else :
+            
+            current = self.head
+            while current.next:
+                if current.next.value == value:
+                    # Found the node with the value specified
+                    new_node = Node(new_value)
+                    new_node.next = current.next
+                    current.next = new_node
+                    return ""
+                current = current.next
+        
+           
+        # Node with the value specified not found
+        return "we not found the value that you want to insert befor"
+    
+    
+    def insert_after(self, value, new_value):
+        """
+        Inserts a new node with the given new_value after the first node
+        that has the value specified.
+        """
+        current = self.head
+        while current:
+            if current.value == value:
+                # Found the node with the value specified
+                new_node = Node(new_value)
+                new_node.next = current.next
+                current.next = new_node
+                return ""
+            current = current.next
+        
+        #  not found
+        return "we not found the value that you want to insert befor"
+    
+    # Stretch Goal
+    #  Once you’ve achieved a working solution, write an additional method to delete a node with the given value 
+    # from the linked list. 
+
+    def delete_node(self, value):
+        """
+        Deletes the first node with the given value from the linked list.
+        """
+        if not self.head:
+            
+            return " linked list is empty"
+        
+        if self.head.value == value:
+            # If the first node has the value specified, we can just update the head
+            self.head = self.head.next
+        
+        else : 
+            current = self.head
+            while current.next:
+                if current.next.value == value:
+                    # Found the node with the value specified
+                    current.next = current.next.next
+                    return ""
+                current = current.next
+        
+        # Node with the value specified not found
+        return " not found"
+# ---------------------------------------------------------------------------
     
 
 if __name__ == "__main__":
