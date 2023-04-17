@@ -2,7 +2,7 @@
 
 ## Whiteboard Process
 
-none  
+[linked list](./Untitled%20(2).png)
 
 ## Approach & Efficiency
 
