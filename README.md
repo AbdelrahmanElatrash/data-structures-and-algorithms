@@ -8,3 +8,6 @@
 
 ## array-binary-search
 [search in array binary](./search_in_array_binary/README.md)
+
+## linked list 
+[linked list](./linked_list/README.md)
