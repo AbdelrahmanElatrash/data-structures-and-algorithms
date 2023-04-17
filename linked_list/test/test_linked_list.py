@@ -12,14 +12,6 @@ def test_empty_ll():
     assert expected == actual
 
 
-# # Test inserting a single node into the linked list
-# def test_insert_1_node():
-    
-#     ll.insert('a')
-#     expected = '{ a } -> NULL'
-#     actual = str(ll)
-#     assert expected == actual
-
 
 #  The head property will properly point to the first node in the linked list 
 def test_head_is_first_node():
@@ -51,6 +43,57 @@ def test_to_string(insert,reset_ll):
     insert
     assert str(ll) == '{ c } -> { b } -> { a } -> NULL'
 
+
+# test add a node to the end of the linked list
+def test_add_node_to_end_list(insert,reset_ll):
+    reset_ll
+    insert
+    ll.append("this value")
+    assert str(ll) == '{ c } -> { b } -> { a } -> { this value } -> NULL'
+
+# add multiple nodes to the end of a linked list
+def test_add_multiple_nodes_to_the_end(reset_ll,append):
+    reset_ll
+    append
+    assert str(ll) == '{ a } -> { b } -> { c } -> NULL'
+
+#  Can successfully insert a node before a node located i the middle of a linked list
+def test_insert_node_before_node(reset_ll,append):
+    reset_ll
+    append
+    ll.insert_before('b', 'x')
+    assert str(ll) == '{ a } -> { x } -> { b } -> { c } -> NULL'
+
+#  Can successfully insert a node before the first node of a linked list
+def test_insert_node_before_first_node(reset_ll,append):
+    reset_ll
+    append
+    ll.insert_before('a', 'x')
+    assert str(ll) == '{ x } -> { a } -> { b } -> { c } -> NULL'
+
+#  Can successfully insert after a node in the middle of the linked list
+def test_insert_after_node(reset_ll,append):
+    reset_ll
+    append
+    ll.insert_after('b', 'x')
+    assert str(ll) == '{ a } -> { b } -> { x } -> { c } -> NULL'
+
+
+# Can successfully insert a node after the last node of the linked list
+def test_insert_after_last_node(reset_ll,append):   # use append method
+    reset_ll
+    append
+    ll.append('x')
+    assert str(ll) == '{ a } -> { b } -> { c } -> { x } -> NULL'
+
+#  delete node 
+
+def test_delete_node(reset_ll,append):
+    reset_ll
+    append
+    ll.delete_node('b')
+    assert str(ll) == '{ a } -> { c } -> NULL'
+
 #################################################################################################
 @pytest.fixture
 def insert():
@@ -65,7 +108,12 @@ def reset_ll():
     yield ll
     ll.head = None
     
-     
+@pytest.fixture
+def append():
+    ll.append("a")
+    ll.append("b")
+    ll.append("c")
+    return ll     
 
 
 
