@@ -41,6 +41,7 @@ class LinkedList:
             result += "NULL"
         return result
     
+    
     def append(self, value):
         new_node = Node(value)
         if not self.head :
@@ -124,6 +125,48 @@ class LinkedList:
         
         # Node with the value specified not found
         return " not found"
+    
+
+    def kth_from_end(self, k):
+        """
+         k: refere to  the location or index  starting from the end at pozition 0
+        """
+        if k < 0:
+           return "no negativ index"
+        
+        elif not self.head :
+            return "list is empty lenth is 0"
+        else :
+            current = self.head
+            length = 1
+            while current.next:
+
+                length += 1  
+                current = current.next
+            if k > length:
+                return f"{k} is greater than the lenth of linked list"
+
+            current = self.head
+            index=length -1
+            for i in range(index -(k)):
+                current = current.next
+
+            return current.value
+        
+
+    def find_middle(self):
+
+        if not self.head:
+            return "list is empty"
+
+        current = self.head
+        length = 1
+        while current.next:
+            length += 1  
+            current = current.next
+        mid=length //2
+
+        return LinkedList.kth_from_end(self,mid)
 # ---------------------------------------------------------------------------
     
 
@@ -131,10 +174,4 @@ if __name__ == "__main__":
 
     link1=LinkedList()
 
-    link1.insert('a')
-    link1.insert('b')
-    link1.insert('c')
-    link1.insert('d')
-
-
-    print(link1)
+    

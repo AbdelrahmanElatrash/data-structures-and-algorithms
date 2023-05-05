@@ -94,6 +94,47 @@ def test_delete_node(reset_ll,append):
     ll.delete_node('b')
     assert str(ll) == '{ a } -> { c } -> NULL'
 
+    #  Where k is greater than the length of the linked list
+def test_k_greater_than_length(reset_ll,append):
+    reset_ll
+    append  # add 3 element  length =3
+    expected = "4 is greater than the lenth of linked list"
+    actual = ll.kth_from_end(4)
+    assert expected == actual 
+
+#  Where k and the length of the list are the same
+def test_k_same_length(reset_ll,append):
+    reset_ll
+    append  # add 3 element  length =3
+    expected = "a"  # equal the head
+    actual = ll.kth_from_end(3)
+    assert expected == actual 
+
+#  Where k is not a positive integer
+def test_k_negative_number():
+   assert ll.kth_from_end(-2) =='no negativ index'
+
+#  Where the linked list is of a size 1
+def test_length_is_1(reset_ll):
+    reset_ll
+    ll.insert('a')
+    assert ll.kth_from_end(0) == 'a'
+    assert ll.kth_from_end(1) == 'a'
+    assert ll.kth_from_end(2) == "2 is greater than the lenth of linked list"
+    
+# “Happy Path” where k is not at the end, but somewhere in the middle of the linked list
+def test_k_in_mid(reset_ll,insert):
+    reset_ll
+    insert
+    ll.insert('d')
+    assert ll.kth_from_end(2) == "c"
+
+# test find the mid of linked list
+def test_find_mid(reset_ll,insert):
+    reset_ll
+    insert
+    assert ll.find_middle()=='b'
+
 #################################################################################################
 @pytest.fixture
 def insert():
@@ -101,6 +142,7 @@ def insert():
     ll.insert('b')
     ll.insert('c')
     return ll
+
 @pytest.fixture(autouse=True)
 def reset_ll():
     
