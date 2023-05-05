@@ -41,6 +41,9 @@ class LinkedList:
             result += "NULL"
         return result
     
+
+
+
     
     def append(self, value):
         new_node = Node(value)
@@ -167,11 +170,48 @@ class LinkedList:
         mid=length //2
 
         return LinkedList.kth_from_end(self,mid)
+    
+def get_length(head):
+    """Returns the length of a linked list."""
+    current = head
+    count = 0
+    while current:
+        count += 1
+        current = current.next
+    return count
+    
+def zip_lists(ll1, ll2):
+    if not ll1:
+        return ll2
+    if not ll2:
+        return ll1
+    
+    curr1 = ll1.head
+    curr2 = ll2.head
+    
+    while curr1 and curr2:
+        next1 = curr1.next
+        next2 = curr2.next
+        curr1.next = curr2
+        curr2.next = next1
+        curr1 = next1
+        curr2 = next2
+    
+    return ll1
+    
 # ---------------------------------------------------------------------------
     
 
 if __name__ == "__main__":
 
-    link1=LinkedList()
+    ll1=LinkedList()
+    ll2=LinkedList()
 
+    ll1.append(1)
+    ll1.append(3)
+    
+    ll2.append(2)
+    ll2.append(4)
+    ll2.append(6)
+    print(zip_lists(ll1,ll2))
     
