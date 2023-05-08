@@ -1,11 +1,19 @@
 from node import Node 
-
 class Queue:
+    """
+    queue class
+    """
     def __init__(self):
+        """
+        initation a queue front and back"""
         self.front = None
         self.back = None
         
     def enqueue(self, value):
+        """
+        add value to the queue
+        arg : value --> any node value
+        """
         new_node = Node(value)
         if self.is_empty():
             self.front = new_node
@@ -15,6 +23,9 @@ class Queue:
             self.back = new_node
             
     def dequeue(self):
+        """
+        delete a value from queue
+        """
         if self.is_empty():
             raise Exception("Queue is empty")
         value = self.front.value
@@ -24,9 +35,15 @@ class Queue:
         return value
     
     def peek(self):
+        """
+        return a peek value from queue
+        """
         if self.is_empty():
             raise Exception("Queue is empty")
         return self.front.value
     
     def is_empty(self):
+        """
+        return true if the queue is empty else return false
+        """
         return self.front is None
