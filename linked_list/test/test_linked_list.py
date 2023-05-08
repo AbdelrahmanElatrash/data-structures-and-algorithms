@@ -98,9 +98,11 @@ def test_delete_node(reset_ll,append):
 def test_k_greater_than_length(reset_ll,append):
     reset_ll
     append  # add 3 element  length =3
-    expected = "4 is greater than the lenth of linked list"
-    actual = ll.kth_from_end(4)
-    assert expected == actual 
+    try :
+        ll.kth_from_end(4)
+    except Exception as e :
+        assert str(e)=="out of range"
+    
 
 #  Where k and the length of the list are the same
 def test_k_same_length(reset_ll,append):
@@ -112,7 +114,11 @@ def test_k_same_length(reset_ll,append):
 
 #  Where k is not a positive integer
 def test_k_negative_number():
-   assert ll.kth_from_end(-2) =='no negativ index'
+   try:
+        ll.kth_from_end(-2)
+   except Exception as e :
+       assert str(e)=="negative number"
+     
 
 #  Where the linked list is of a size 1
 def test_length_is_1(reset_ll):
@@ -120,7 +126,11 @@ def test_length_is_1(reset_ll):
     ll.insert('a')
     assert ll.kth_from_end(0) == 'a'
     assert ll.kth_from_end(1) == 'a'
-    assert ll.kth_from_end(2) == "2 is greater than the lenth of linked list"
+    try:
+        ll.kth_from_end(2)
+    except Exception as e:
+        assert str(e)=="out of range"
+    
     
 # “Happy Path” where k is not at the end, but somewhere in the middle of the linked list
 def test_k_in_mid(reset_ll,insert):
@@ -129,13 +139,19 @@ def test_k_in_mid(reset_ll,insert):
     ll.insert('d')
     assert ll.kth_from_end(2) == "c"
 
+# find mid list is empty
+def test_find_mid(reset_ll):
+    reset_ll
+    try :
+        ll.find_middle()
+    except Exception as e :
+        assert str(e)=="list is empty"
+
 # test find the mid of linked list
 def test_find_mid(reset_ll,insert):
     reset_ll
     insert
     assert ll.find_middle()=='b'
-
- 
 def test_zip_lists(reset_ll):
     # Test case 1: zipping two empty lists
     reset_ll
@@ -195,6 +211,9 @@ def append():
     ll.append("b")
     ll.append("c")
     return ll     
+
+
+
 
 
 

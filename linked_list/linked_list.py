@@ -135,10 +135,10 @@ class LinkedList:
          k: refere to  the location or index  starting from the end at pozition 0
         """
         if k < 0:
-           return "no negativ index"
+           raise Exception("negative number")
         
         elif not self.head :
-            return "list is empty lenth is 0"
+            raise Exception ("list is empty")
         else :
             current = self.head
             length = 1
@@ -147,7 +147,7 @@ class LinkedList:
                 length += 1  
                 current = current.next
             if k > length:
-                return f"{k} is greater than the lenth of linked list"
+                raise Exception("out of range")
 
             current = self.head
             index=length -1
@@ -160,7 +160,7 @@ class LinkedList:
     def find_middle(self):
 
         if not self.head:
-            return "list is empty"
+            raise Exception("list is empty")
 
         current = self.head
         length = 1
@@ -168,9 +168,12 @@ class LinkedList:
             length += 1  
             current = current.next
         mid=length //2
+        try :
+            return LinkedList.kth_from_end(self,mid)
+        except Exception as e:
+            raise e
 
-        return LinkedList.kth_from_end(self,mid)
-    
+
 def get_length(head):
     """Returns the length of a linked list."""
     current = head
@@ -181,6 +184,11 @@ def get_length(head):
     return count
     
 def zip_lists(ll1, ll2):
+    """
+    zip 2 linked list together 
+    arg : ll1 : linked list , ll2 : linked list 
+    return :  one linked list generated from the prevuce 2 linked list 
+    """
     if not ll1:
         return ll2
     if not ll2:
@@ -207,11 +215,4 @@ if __name__ == "__main__":
     ll1=LinkedList()
     ll2=LinkedList()
 
-    ll1.append(1)
-    ll1.append(3)
-    
-    ll2.append(2)
-    ll2.append(4)
-    ll2.append(6)
-    print(zip_lists(ll1,ll2))
-    
+   
