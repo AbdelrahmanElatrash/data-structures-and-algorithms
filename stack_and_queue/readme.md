@@ -3,7 +3,7 @@
 ## Whiteboard Process
 
 [stack and queue , pdf](./witebord.pdf)
-[stack and queue , png](./Untitled%20(5).png)
+[stack and queue , png](./Untitled%20(9).png)
 
 ## Approach & Efficiency
 
