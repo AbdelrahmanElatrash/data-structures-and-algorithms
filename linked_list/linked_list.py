@@ -160,7 +160,8 @@ class LinkedList:
     def find_middle(self):
 
         if not self.head:
-            raise Exception("list is empty")
+
+            raise Exception ("list is empty")
 
         current = self.head
         length = 1
