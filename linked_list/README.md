@@ -3,7 +3,7 @@
 ## Whiteboard Process
 
 [linked list](./Untitled%20(2).png)
-[linked list -kth](./Untitled%20(1).png)
+[linked list -kth](./Untitled%20(7).png)
 
 ## Approach & Efficiency
 

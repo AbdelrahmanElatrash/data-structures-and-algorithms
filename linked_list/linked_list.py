@@ -132,10 +132,10 @@ class LinkedList:
          k: refere to  the location or index  starting from the end at pozition 0
         """
         if k < 0:
-           return "no negativ index"
+           raise Exception("negative number")
         
         elif not self.head :
-            return "list is empty lenth is 0"
+            raise Exception ("list is empty")
         else :
             current = self.head
             length = 1
@@ -144,7 +144,7 @@ class LinkedList:
                 length += 1  
                 current = current.next
             if k > length:
-                return f"{k} is greater than the lenth of linked list"
+                raise Exception("out of range")
 
             current = self.head
             index=length -1
@@ -157,8 +157,7 @@ class LinkedList:
     def find_middle(self):
 
         if not self.head:
-            return "list is empty"
-
+            raise Exception ("list is empty")
         current = self.head
         length = 1
         while current.next:
