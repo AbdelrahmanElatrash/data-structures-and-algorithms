@@ -1,6 +1,6 @@
 
 import pytest
-from linked_list import  LinkedList 
+from linked_list import  LinkedList , zip_lists
 
 
 
@@ -146,11 +146,49 @@ def test_find_mid(reset_ll):
         ll.find_middle()
     except Exception as e :
         assert str(e)=="list is empty"
+
 # test find the mid of linked list
 def test_find_mid(reset_ll,insert):
     reset_ll
     insert
     assert ll.find_middle()=='b'
+def test_zip_lists(reset_ll):
+    # Test case 1: zipping two empty lists
+    reset_ll
+    ll1 = ll
+    ll2 = ll
+    assert str(zip_lists(ll1, ll2)) == 'Empty LinkeList'
+
+# Test case 2: zipping a non-empty list with an empty list
+
+    ll1 = LinkedList()
+    ll2 = LinkedList()
+    ll1.append(1)
+    ll1.append(3)
+    ll1.append(5)
+    assert str(zip_lists(ll1, ll2)) == '{ 1 } -> { 3 } -> { 5 } -> NULL'
+
+    # Test case 3: zipping two non-empty lists with equal length
+    ll1 = LinkedList()
+    ll2 = LinkedList()
+    ll1.append(1)
+    ll1.append(3)
+    ll1.append(5)
+    ll2.append(2)
+    ll2.append(4)
+    ll2.append(6)
+    assert str(zip_lists(ll1, ll2)) == "{ 1 } -> { 2 } -> { 3 } -> { 4 } -> { 5 } -> { 6 } -> NULL"
+
+    # Test case 4: zipping two non-empty lists with different length
+    ll1 = LinkedList()
+    ll2 = LinkedList()
+    ll1.append(1)
+    ll1.append(3)
+    ll1.append(6)
+    ll2.append(2)
+    ll2.append(4)
+    
+    assert str(zip_lists(ll1, ll2)) == "{ 1 } -> { 2 } -> { 3 } -> { 4 } -> { 6 } -> NULL"
 
 #################################################################################################
 @pytest.fixture
