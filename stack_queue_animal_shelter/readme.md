@@ -20,8 +20,4 @@ install dependance
 
 
 
-## test
-in test directory run
-`pytest`
 
-[test solution](./test/test_code.py)
