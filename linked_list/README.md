@@ -3,8 +3,12 @@
 ## Whiteboard Process
 
 [linked list](./Untitled%20(2).png)
+
+[linked list -kth](./Untitled%20(7).png)
+
 [linked list -kth](./Untitled%20(1).png)
 [linked list zip](./Untitled%20(3).png)
+
 
 ## Approach & Efficiency
 
