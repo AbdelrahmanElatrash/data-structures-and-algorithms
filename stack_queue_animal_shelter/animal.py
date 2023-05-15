@@ -1,3 +1,5 @@
+from queue import Queue
+
 class Animal:
     def __init__(self, species, name):
         """
@@ -14,8 +16,8 @@ class AnimalShelter:
         """
         Initializes an AnimalShelter object.
         """
-        self.dog_stack = []
-        self.cat_stack = []
+        self.dog_queue = Queue()
+        self.cat_queue = Queue()
         self.timestamp = 0
 
     def enqueue(self, animal):
@@ -31,9 +33,9 @@ class AnimalShelter:
         animal.timestamp = self.timestamp
         self.timestamp += 1
         if animal.species == 'dog':
-            self.dog_stack.append(animal)
+            self.dog_queue.enqueue(animal)
         elif animal.species == 'cat':
-            self.cat_stack.append(animal)
+            self.cat_queue.enqueue(animal)
 
     def dequeue(self, pref):
         """
@@ -48,29 +50,31 @@ class AnimalShelter:
         if pref not in ['dog', 'cat']:
             raise ValueError("Preferred species must be 'dog' or 'cat'.")
         if pref == 'dog':
-            if not self.dog_stack:
+            if self.dog_queue.is_empty():
                 return None
-            # Move all the dogs to the cat stack until we find the first dog
-            while self.dog_stack:
-                self.cat_stack.append(self.dog_stack.pop())
-                if self.cat_stack[-1].species == 'dog':
-                    return self.cat_stack.pop()
+            return self.dog_queue.dequeue()
         elif pref == 'cat':
-            if not self.cat_stack:
+            if self.cat_queue.is_empty():
                 return None
-            # Move all the cats to the dog stack until we find the first cat
-            while self.cat_stack:
-                self.dog_stack.append(self.cat_stack.pop())
-                if self.dog_stack[-1].species == 'cat':
-                    return self.dog_stack.pop()
+            return self.cat_queue.dequeue()
         else:
             # If neither dog nor cat is preferred, return whichever animal has been waiting the longest
-            if not self.dog_stack:
-                return self.cat_stack.pop() if self.cat_stack else None
-            if not self.cat_stack:
-                return self.dog_stack.pop() if self.dog_stack else None
-            if self.dog_stack[-1].timestamp < self.cat_stack[-1].timestamp:
-                return self.dog_stack.pop()
+            if self.dog_queue.is_empty():
+                return self.cat_queue.dequeue() if not self.cat_queue.is_empty() else None
+            if self.cat_queue.is_empty():
+                return self.dog_queue.dequeue() if not self.dog_queue.is_empty() else None
+            dog_front_timestamp = self.dog_queue.peek().timestamp
+            cat_front_timestamp = self.cat_queue.peek().timestamp
+            if dog_front_timestamp < cat_front_timestamp:
+                return self.dog_queue.dequeue()
             else:
-                return self.cat_stack.pop()
-        return None
+                return self.cat_queue.dequeue()
+            
+
+# shelter = AnimalShelter()
+
+# shelter.enqueue(Animal('dog', 'Buddy'))
+# shelter.enqueue(Animal('dog', 'Max'))
+# shelter.enqueue(Animal('cat', 'Fluffy'))
+# shelter.enqueue(Animal('cat', 'Whiskers'))
+
