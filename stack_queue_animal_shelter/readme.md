@@ -2,7 +2,7 @@
 
 ## Whiteboard Process
 
-[Animal Shelter](./Untitled.png)
+[Animal Shelter](./Untitled%20(2).png)
 
 
 
@@ -18,6 +18,11 @@ create your env
 install dependance
 `pip3 install pytest`
 
+## code 
+[animal shelter](./animal.py)
 
+## test
+in test directory run
+`pytest`
 
-
+[test solution](./test/test_animal.py)
