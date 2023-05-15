@@ -9,3 +9,4 @@
 | linked list |[linked list](./linked_list/README.md)|
 |stack and queue |[stack and queue](./stack_and_queue/readme.md)|
 |Animal Shelter|[Animal Shelter](./stack-queue-animal-shelter/readme.md)|
+|stack-queue-brackets|[stack queue brackets](./Multi_bracket_Validation./redme.md)|
