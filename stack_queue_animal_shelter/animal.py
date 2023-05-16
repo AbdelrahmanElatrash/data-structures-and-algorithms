@@ -16,9 +16,8 @@ class AnimalShelter:
         """
         Initializes an AnimalShelter object.
         """
-        self.dog_queue = Queue()
-        self.cat_queue = Queue()
-        self.timestamp = 0
+        self.queue = Queue()
+
 
     def enqueue(self, animal):
         """
@@ -28,47 +27,38 @@ class AnimalShelter:
         Raises:
             TypeError: If the argument is not an Animal object.
         """
-        if not isinstance(animal, Animal):
-            raise TypeError("Argument must be an Animal object.")
-        animal.timestamp = self.timestamp
-        self.timestamp += 1
-        if animal.species == 'dog':
-            self.dog_queue.enqueue(animal)
-        elif animal.species == 'cat':
-            self.cat_queue.enqueue(animal)
+        if animal['species'] != 'dog' and animal['species'] != 'cat':
+            raise ValueError('Invalid animal species')
+        self.queue.enqueue(animal)
 
-    def dequeue(self, pref):
+    def dequeue(self, pref=None):
         """
-        Dequeues an animal from the shelter.
+        Removes and returns a dog or cat from the animal shelter.
         Args:
-            pref (str): The preferred species of animal to dequeue.
+            pref: a string representing the preferred species to dequeue. If not specified or not a valid
+                  species ('dog' or 'cat'), the animal that has been waiting in the shelter the longest
+                  is returned.
         Returns:
-            Animal: The dequeued animal, or None if no animal of the preferred species is available.
-        Raises:
-            ValueError: If the preferred species is not 'dog' or 'cat'.
+            A dictionary with 'species' and 'name' keys representing the dequeued animal, or None if no
+            animal of the preferred species is available.
         """
-        if pref not in ['dog', 'cat']:
-            raise ValueError("Preferred species must be 'dog' or 'cat'.")
-        if pref == 'dog':
-            if self.dog_queue.is_empty():
-                return None
-            return self.dog_queue.dequeue()
-        elif pref == 'cat':
-            if self.cat_queue.is_empty():
-                return None
-            return self.cat_queue.dequeue()
+        if pref is None or (pref != 'dog' and pref != 'cat'):
+            # Dequeue the animal that has been waiting in the shelter the longest
+            return self.queue.dequeue()
         else:
-            # If neither dog nor cat is preferred, return whichever animal has been waiting the longest
-            if self.dog_queue.is_empty():
-                return self.cat_queue.dequeue() if not self.cat_queue.is_empty() else None
-            if self.cat_queue.is_empty():
-                return self.dog_queue.dequeue() if not self.dog_queue.is_empty() else None
-            dog_front_timestamp = self.dog_queue.peek().timestamp
-            cat_front_timestamp = self.cat_queue.peek().timestamp
-            if dog_front_timestamp < cat_front_timestamp:
-                return self.dog_queue.dequeue()
-            else:
-                return self.cat_queue.dequeue()
+            # Dequeue the first animal of the preferred species found in the queue
+            temp_queue = Queue()
+            result = None
+            while not self.queue.is_empty():
+                animal = self.queue.dequeue()
+                if animal['species'] == pref:
+                    result = animal
+                    break
+                else:
+                    temp_queue.enqueue(animal)
+            while not temp_queue.is_empty():
+                self.queue.enqueue(temp_queue.dequeue())
+            return result
             
 
 # shelter = AnimalShelter()
