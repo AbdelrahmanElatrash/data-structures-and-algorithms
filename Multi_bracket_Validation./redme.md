@@ -2,7 +2,7 @@
 
 ## Whiteboard Process
 
-[bracket Validation](./Untitled%20(1).png)
+[bracket Validation](./Untitled%20(4).png)
 
 
 
