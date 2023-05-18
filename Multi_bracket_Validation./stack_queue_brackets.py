@@ -1,5 +1,18 @@
 
 def validate_brackets(string):
+    """
+    Validate the balance of brackets in a string.
+
+    Args:
+        string (str): The string to validate.
+
+    Returns:
+        bool: True if the brackets are balanced, False otherwise.
+
+    Examples:
+        >>> validate_brackets("{}")
+        True
+    """ 
     stack = []
     opening_brackets = ['(', '[', '{']
     closing_brackets = [')', ']', '}']
