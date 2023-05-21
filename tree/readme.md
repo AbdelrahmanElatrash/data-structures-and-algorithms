@@ -2,7 +2,7 @@
 
 ## Whiteboard Process
 
-[bracket Validation](./Untitled%20(4).png)
+[tree implementation](./Untitled%20(6).png)
 
 
 
@@ -19,10 +19,10 @@ install dependance
 
 ## code 
 in root directory 
-[solution](./stack_queue_brackets.py)
+[solution](./tree.py)
 
 ## test
 in test directory run
 `pytest`
 
-[test solution](./test/test_validate_bracket.py)
+[test solution](./test/test_tree.py)

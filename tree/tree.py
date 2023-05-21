@@ -154,8 +154,8 @@ class Binary_Search_Tree(Tree):
 if __name__=="__main__":
 
     # tree_1=Tree()
-    # tree_1.root=Node("a")
-    # tree_1.root.left=Node("b")
+    # tree.root=Node("a")
+    # tree.root.left=Node("b")
     # tree_1.root.right=Node("c")
     # tree_1.root.left.left=Node("1")
     # tree_1.root.left.right=Node("2")
