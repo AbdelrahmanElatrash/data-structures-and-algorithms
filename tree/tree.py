@@ -60,6 +60,30 @@ class Tree:
         
         return arr
     
+
+    def find_maximum_value(self):
+        """
+        find max value in the tree
+        return number as a max number in a tree
+        """
+    
+        if self.root :
+
+            values=[ int(value) for value in self.in_order(self.root) if value.isdigit() ]
+            max_num=values[0]
+            for num in values :
+                if num >= max_num:
+                    max_num=num
+
+            return max_num 
+        
+        return "tree is empty"
+
+            
+        
+        
+        
+
 class Binary_Search_Tree(Tree):
 
     def __init__(self):
@@ -153,29 +177,32 @@ class Binary_Search_Tree(Tree):
         
 if __name__=="__main__":
 
-    # tree_1=Tree()
-    # tree.root=Node("a")
-    # tree.root.left=Node("b")
-    # tree_1.root.right=Node("c")
-    # tree_1.root.left.left=Node("1")
-    # tree_1.root.left.right=Node("2")
+    tree=Tree()
+    tree.root=Node("11")
+    tree.root.left=Node("7")
+    tree.root.right=Node("j")
+    tree.root.left.left=Node("14")
+    tree.root.left.right=Node("4")
 
-    bst=Binary_Search_Tree()
+    print(tree.in_order(tree.root))
+    print(tree.find_maximum_value())
 
-    bst.add(50)
-    bst.add(30)
-    bst.add(70)
-    bst.add(20)
-    bst.add(40)
-    bst.add(60)
-    bst.add(80)
+    # bst=Binary_Search_Tree()
+
+    # bst.add(50)
+    # bst.add(30)
+    # bst.add(70)
+    # bst.add(20)
+    # bst.add(40)
+    # bst.add(60)
+    # bst.add(80)
     
 
     # print(bst.in_order(bst.root)) 
     # # print(tree_1.in_order(tree_1.root))
     # print(bst.post_order(bst.root))
-    print(bst.contains(70))
-    print(bst.contains(15))
+    # print(bst.contains(70))
+    # print(bst.contains(15))
 
 
 

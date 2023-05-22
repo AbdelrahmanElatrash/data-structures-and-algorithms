@@ -16,9 +16,9 @@ def test_instantiate_empty_tree():
 def test_tree_traversal(insert):
     insert
     
-    assert tree.in_order(tree.root)  == ['1', 'b', '2', 'a', 'c']
-    assert tree.post_order(tree.root) == ['1', '2', 'b', 'c', 'a']
-    assert tree.pre_order(tree.root) == ['a', 'b', '1', '2', 'c']
+    assert tree.in_order(tree.root)  == ['5', '13', '14', '9', '7']
+    assert tree.post_order(tree.root) == ['5', '14', '13', '7', '9']
+    assert tree.pre_order(tree.root) == ['9', '13', '5', '14', '7']
 
 
 
@@ -35,16 +35,25 @@ def test_contains(insert_bst):
     assert bst.contains(70)==True
     assert bst.contains(15)==False
 
+
+def test_find_max(insert):
+    insert
+    assert tree.find_maximum_value()==14
+
+def test_find_max_empty_tree(reset_ll):
+    reset_ll
+    assert tree.find_maximum_value()== "tree is empty"
+
 #################################################################################################
 
 
 @pytest.fixture
 def insert():
-    tree.root=Node("a")
-    tree.root.left=Node("b")
-    tree.root.right=Node("c")
-    tree.root.left.left=Node("1")
-    tree.root.left.right=Node("2")
+    tree.root=Node("9")
+    tree.root.left=Node("13")
+    tree.root.right=Node("7")
+    tree.root.left.left=Node("5")
+    tree.root.left.right=Node("14")
 
     return tree
 
@@ -67,5 +76,5 @@ def reset_ll():
     bst = None
     # tree.root=None
     yield bst 
-    bst = None
-    # tree.root =None
+    # bst = None
+    tree.root =None
