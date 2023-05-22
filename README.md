@@ -10,3 +10,4 @@
 |stack and queue |[stack and queue](./stack_and_queue/readme.md)|
 |Animal Shelter|[Animal Shelter](./stack-queue-animal-shelter/readme.md)|
 |stack-queue-brackets|[stack queue brackets](./Multi_bracket_Validation./redme.md)|
+|tree data structur|[tree ds](./tree/readme.md)|
