@@ -4,6 +4,8 @@
 
 [tree implementation](./Untitled%20(6).png)
 
+[find_max](./Untitled%20(7).png)
+
 
 
 ## Approach & Efficiency
