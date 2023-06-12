@@ -12,3 +12,4 @@
 |stack-queue-brackets|[stack queue brackets](./Multi_bracket_Validation./redme.md)|
 |tree data structur|[tree ds](./tree/readme.md)|
 |tree breadth first|[tree breadth first](./tree/tree_breadth.md)|
+|insertion sort|[insertion sort](./insertion_sort/readme.md)|
