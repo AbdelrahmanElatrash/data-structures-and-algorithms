@@ -2,8 +2,15 @@
 
 ## Whiteboard Process
 
-- [insertion sort](./Untitled%20(9).png)
-- [reversd sort](./Untitled%20(10).png)
+- [-](./Untitled%20(11).png)
+- [-](./Untitled%20(12).png)
+- [-](./Untitled%20(13).png)
+- [-](./Untitled%20(14).png)
+- [-](./Untitled%20(15).png)
+- [-](./Untitled%20(16).png)
+-[code](./Untitled%20(17).png)
+
+[pdf_file](./Untitled.pdf)
 
 
 ## Approach & Efficiency
