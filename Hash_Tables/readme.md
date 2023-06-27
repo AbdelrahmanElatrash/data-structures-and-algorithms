@@ -1,7 +1,7 @@
 # Hash Tables
 
 ## Whiteboard Process
-
+[hash table](./Untitled%20(19).png)
 
 ## Approach & Efficiency
 
@@ -16,10 +16,10 @@ install dependance
 
 ## Solution
 
-[solution](./.)
+[solution](./hash_table.py)
 
 ## test
 in test directory run
 `pytest`
 
-[test solution](./test/)
+[test solution](./test/test_hash_table.py)

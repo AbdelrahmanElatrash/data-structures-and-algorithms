@@ -2,7 +2,7 @@
 class Node():
 
     def __init__(self,value) -> None:
-        self.value=valuealue 
+        self.value=value 
         self.next=None
 
 
@@ -12,7 +12,7 @@ class LinkedList():
         self.head=None
 
 
-        def __str__(self):
+    def __str__(self):
             values=[]
             current=self.head
 
@@ -20,10 +20,10 @@ class LinkedList():
                 values.append(current.value)
                 current=current.next
 
-            return f'{values}'
+            return f"{values}"
         
 
-        def add(self,value):
+    def add(self,value):
             node=Node(value)
 
             if not self.head :
@@ -36,4 +36,3 @@ class LinkedList():
                     current=current.next
 
                 current.next=node
-                
