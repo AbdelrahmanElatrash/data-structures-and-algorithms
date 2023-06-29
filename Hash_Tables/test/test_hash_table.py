@@ -23,4 +23,4 @@ def test_handel_collision():
 
 def test_hash_key_in_range():
     value=hash_.hash("a")
-    assert value== value in range(10)
+    assert value== value in range(hash_.size)
