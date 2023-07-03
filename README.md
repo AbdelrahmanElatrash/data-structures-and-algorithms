@@ -13,4 +13,5 @@
 |tree data structur|[tree ds](./tree/readme.md)|
 |tree breadth first|[tree breadth first](./tree/tree_breadth.md)|
 |insertion sort|[insertion sort](./insertion_sort/readme.md)|
-|Hash Tables|[Hash Tables](./Hash_Tables/readme.md)
+|Hash Tables|[Hash Tables](./Hash_Tables/readme.md)|
+| repeated word|[repeated word](./Hash_Tables/repeated_word.md)|

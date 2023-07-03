@@ -20,7 +20,7 @@ class LinkedList():
                 values.append(current.value)
                 current=current.next
 
-            return f"{values}"
+            return values
         
 
     def add(self,value):

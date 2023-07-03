@@ -24,7 +24,7 @@ class HashTable():
         """
         h=0
         if isinstance(key,(int,float)):
-            key=int(key)
+            key=str(key)
         for ch in key :
             h += ord(ch)
 
@@ -63,7 +63,7 @@ class HashTable():
         hashed_key=self.hash(key)
 
         if not self.hash_table[hashed_key] :
-            return "no value "
+            return ''
         else :
             value_pairs=self.hash_table[hashed_key]
 
@@ -99,15 +99,15 @@ class HashTable():
 
     
 
-if __name__=="__main__":
+# if __name__=="__main__":
 
-    hash_=HashTable()
+#     hash_=HashTable()
 
-    hash_.set('d','this d value')
-#     hash_.set('5','this 5 value')
-#     hash_.set('R','this R value')
-#     hash_.set('Z','this Z value')
-    print(hash_.get('d'))
+#     hash_.set('d','this d value')
+# #     hash_.set('5','this 5 value')
+# #     hash_.set('R','this R value')
+# #     hash_.set('Z','this Z value')
+#     print(hash_.get('d'))
 
 #     for i in range(10):
 #         print(hash_.hash_table[i])
