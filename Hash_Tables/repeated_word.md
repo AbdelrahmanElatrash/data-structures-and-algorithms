@@ -1,7 +1,7 @@
 # Find the first repeated word in a book.
 
 ## Whiteboard Process
-[hash table](./Untitled%20(21).png)
+[hash table](./Untitled%20(1).png)
 
 ## Approach & Efficiency
 
@@ -19,7 +19,9 @@ install dependance
 [solution](./repeated_word.py)
 
 ## test
+
 in test directory run
+
 `pytest test_repeated_word.py`
 
 [test solution](./test/test_repeated_word.py)

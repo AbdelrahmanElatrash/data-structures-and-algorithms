@@ -4,6 +4,11 @@ except :
     from .hash_table import HashTable
 
 def split_(str_):
+    """
+    split string to list remove any samol
+    args : str_ string
+    return list of splited str_
+    """
     str_=str_.lower().replace(",", "").replace(".", "").replace("!", "").replace("?", "").replace(":", "")   # or regex
     split_str=''
     split_list=[]
@@ -26,6 +31,11 @@ def split_(str_):
 #                return split_list[i]
 
 def repeated_word(str_):
+    """
+    repeated word that finds the first word to occur more than once in a string
+    args : str_ string
+    return string <word occur more than once in a str_>
+    """
     split_list=split_(str_)
     hash_=None
     hash_=HashTable()
@@ -42,7 +52,11 @@ def repeated_word(str_):
     return None
 
 def count_word(str_):
-    
+    """
+    return a count of each of the words in the provided string
+    args : str_ string
+    return : dict of word and countof it
+    """
     split_list=split_(str_)
     hash_=None
     hash_=HashTable()
@@ -65,14 +79,17 @@ def count_word(str_):
     return   word_counts   
         
 def list_word(str_):
+    """
+    function to return a list of the words most frequently used in the provided string
+    args : str_ string
+    return list of most frequently used in the str_"""
     split_list=split_(str_)
     hash_=None
     hash_=HashTable()
     my_list=[]
     for item in split_list:
         
-        value_pairs=hash_.get(item)   
-        # print(value_pairs)   
+        value_pairs=hash_.get(item)     
         if  item in f'{value_pairs}': 
             my_list.append(item) 
                     
@@ -82,10 +99,5 @@ def list_word(str_):
     return set(my_list)   
     
 
-# str_1="It was a queer, sultry summer, the summer they electrocuted the Rosenbergs, and I didn't know what I was doing in New York..."       
-str_1 ="It was the best of times, it was the worst of times, it was the age of wisdom, it was the age of foolishness, it was the epoch of belief, it was the epoch of incredulity, it was the season of Light, it was the season of Darkness, it was the spring of hope, it was the winter of despair, we had everything before us, we had nothing before us, we were all going direct to Heaven, we were all going direct the other way – in short, the period was so far like the present period, that some of its noisiest authorities insisted on its being received, for good or for evil, in the superlative degree of comparison only..."   
-# str_1="Once upon a time, there was a brave princess who..."
-print(count_word(str_1)) 
-# # repeated_word(str_1)
-# # print(hash_.get('it'))    
+ 
             
