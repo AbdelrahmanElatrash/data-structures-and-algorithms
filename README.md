@@ -15,3 +15,4 @@
 |insertion sort|[insertion sort](./insertion_sort/readme.md)|
 |Hash Tables|[Hash Tables](./Hash_Tables/readme.md)|
 | repeated word|[repeated word](./Hash_Tables/repeated_word.md)|
+|tree_intersection|[tree_intersection](./tree_intersection/tree_intersection.md)|
