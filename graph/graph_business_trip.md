@@ -3,7 +3,7 @@
 ## graph-business-trip
 
 ## Whiteboard Process
-[# graph-business-trip]()
+[# graph-business-trip](./Untitled%20(3).png)
 
 
 ## Approach & Efficiency
