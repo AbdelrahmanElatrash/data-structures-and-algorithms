@@ -34,7 +34,7 @@ class Graph:
         return vertix
     
     
-    def add_edge(self,vertex1,vertex2):
+    def add_edge(self,vertex1,vertex2,weight=0):
         """
         Adds a new edge between two vertices in the graph
         Arguments: 2 vertices to be connected by the edge
@@ -42,8 +42,8 @@ class Graph:
         if vertex1 not in self.adj_list or vertex2 not in self.adj_list :
             return "one or both vertices not in graph object"
         
-        edge1=Edge(vertex2)
-        edge2=Edge(vertex1)
+        edge1=Edge(vertex2,weight)
+        edge2=Edge(vertex1,weight)
         
         self.adj_list[vertex1].append(edge1)
         self.adj_list[vertex2].append(edge2)
@@ -117,30 +117,30 @@ class Graph:
     
     
     
-if __name__=="__main__":
+# if __name__=="__main__":
     
-    graph=Graph()
+#     graph=Graph()
     
-    a=graph.add_vertex(0)
-    b=graph.add_vertex(1)
-    c=graph.add_vertex(2)
-    d=graph.add_vertex(3)
-    
-    
-    graph.add_edge(a,b)
-    graph.add_edge(a,c)
-    graph.add_edge(b,c)
-    graph.add_edge(c,d)
-    graph.add_edge(d,b)
-    graph.add_edge(d,c)
+#     a=graph.add_vertex(0)
+#     b=graph.add_vertex(1)
+#     c=graph.add_vertex(2)
+#     d=graph.add_vertex(3)
     
     
-    # print(graph)
-    print(graph.breadth_first(a))
+#     graph.add_edge(a,b)
+#     graph.add_edge(a,c)
+#     graph.add_edge(b,c)
+#     graph.add_edge(c,d)
+#     graph.add_edge(d,b)
+#     graph.add_edge(d,c)
     
-    # c=graph.get_neighbors(a)
-    # print(graph.size())
-    # for i in c:
-    #     print(i)
+    
+#     # print(graph)
+#     print(graph.breadth_first(a))
+    
+#     # c=graph.get_neighbors(a)
+#     # print(graph.size())
+#     # for i in c:
+#     #     print(i)
        
     
