@@ -115,32 +115,67 @@ class Graph:
             
         
     
+    def depth_first(self, node):
+        """
+        Arguments: Node (Starting point of search)
+        Return: A collection of nodes in their pre-order depth-first traversal order
+        """
+        if not node:
+            return -1
+        
+        visited=[]
+        stack=[node]
+        
+        while stack:
+            
+            vertex=stack.pop()
+            
+            if vertex.value not in visited:
+                visited.append(vertex.value)
+                
+            for edge in self.adj_list[vertex]:  # [b,d]
+                if edge.vertex.value not in visited:
+                    
+                    stack.append(edge.vertex)   
+        
+        return visited
     
     
-# if __name__=="__main__":
+        
+if __name__=="__main__":
     
-#     graph=Graph()
+    graph=Graph()
     
-#     a=graph.add_vertex(0)
-#     b=graph.add_vertex(1)
-#     c=graph.add_vertex(2)
-#     d=graph.add_vertex(3)
-    
-    
-#     graph.add_edge(a,b)
-#     graph.add_edge(a,c)
-#     graph.add_edge(b,c)
-#     graph.add_edge(c,d)
-#     graph.add_edge(d,b)
-#     graph.add_edge(d,c)
+    a=graph.add_vertex('A')
+    b=graph.add_vertex('B')
+    c=graph.add_vertex('C')
+    d=graph.add_vertex('D')
+    e=graph.add_vertex('E')
+    f=graph.add_vertex('F')
+    g=graph.add_vertex('G')
+    h=graph.add_vertex('H')
     
     
-#     # print(graph)
-#     print(graph.breadth_first(a))
+    graph.add_edge(a,d)
+    graph.add_edge(a,b)
+
+    graph.add_edge(b,d)
+    graph.add_edge(b,c)
     
-#     # c=graph.get_neighbors(a)
-#     # print(graph.size())
-#     # for i in c:
-#     #     print(i)
+    graph.add_edge(c,g)
+    
+    graph.add_edge(d,f)
+    graph.add_edge(d,h)
+    graph.add_edge(d,e)
+    
+    graph.add_edge(f,h)
+    
+    
+    print(graph.depth_first(a))
+    
+    # graph.get_neighbors(a)
+    # print(graph.size())
+    for i in graph.get_neighbors(a):
+        print(i)
        
     
