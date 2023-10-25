@@ -18,4 +18,5 @@
 |tree_intersection|[tree_intersection](./tree_intersection/tree_intersection.md)|
 |graph ds|[graph_implimentation](./graph/graph.md)|
 |graph-breadth-first|[graph-breadth-first](./graph/graph-breadth-first.md)|
-|graph-business-trip|[graph-business-trip](./graph/graph_business_trip.md)
+|graph-business-trip|[graph-business-trip](./graph/graph_business_trip.md)|
+|graph-depth-first|[graph-depth-first](./graph/graph-depth-first.md)|
